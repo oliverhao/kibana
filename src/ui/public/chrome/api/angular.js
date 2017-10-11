@@ -24,6 +24,7 @@ export function initAngularApi(chrome, internals) {
     .value('kbnVersion', internals.version)
     .value('buildNum', internals.buildNum)
     .value('buildSha', internals.buildSha)
+    .value('sv', internals.sharpview.configServer)
     .value('serverName', internals.serverName)
     .value('uiSettings', internals.uiSettings)
     .value('sessionId', Date.now())

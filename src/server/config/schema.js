@@ -44,6 +44,10 @@ module.exports = () => Joi.object({
     })
   }),
 
+  sharpview: Joi.object({
+    configServer: Joi.any()
+  }).default(),
+
   server: Joi.object({
     uuid: Joi.string().guid().default(),
     name: Joi.string().default(os.hostname()),
@@ -54,6 +58,7 @@ module.exports = () => Joi.object({
     defaultRoute: Joi.string().default('/app/kibana').regex(/^\//, `start with a slash`),
     basePath: Joi.string().default('').allow('').regex(/(^$|^\/.*[^\/]$)/, `start with a slash, don't end with one`),
     customResponseHeaders: Joi.object().unknown(true).default({}),
+
     ssl: Joi.object({
       enabled: Joi.boolean().default(false),
       certificate: Joi.string().when('enabled', {

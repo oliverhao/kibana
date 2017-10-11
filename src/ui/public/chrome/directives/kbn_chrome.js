@@ -15,7 +15,7 @@ export function kbnChromeProvider(chrome, internals) {
 
   uiModules
   .get('kibana')
-  .directive('kbnChrome', () => {
+  .directive('kbnChrome', (sv) => {
     return {
       template() {
         const $content = $(require('./kbn_chrome.html'));
@@ -31,6 +31,10 @@ export function kbnChromeProvider(chrome, internals) {
         }
 
         return $content;
+      },
+
+      link: function ($scope) {
+        $scope.sv = sv;
       },
 
       controllerAs: 'chrome',

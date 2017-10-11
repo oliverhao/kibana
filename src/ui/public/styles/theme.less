@@ -56,11 +56,40 @@
   }
 
   .navbar-nav {
-    font-size: @font-size-small;
+    > li {
+      > a{
+         color:white;
+       }
+     } 
+     font-size:16px;
+  }
 
-    & > .active > a {
-      border-bottom-color: @kibanaGray2;
-      background-color: transparent;
+  .sv-nav{
+    float: initial !important;
+  }
+
+  .navbar-nav > .active > a {
+    border-bottom-color: @navbar-nav-active-link-border;
+
+    // navbar active arrow base styles
+    &:before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      border: @navbar-arrow-size solid transparent;
+      border-bottom-color: inherit;
+      top: (@navbar-height - @navbar-arrow-size*2);
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 0;
+      height: 0;
+    }
+
+    @media (max-width: @screen-sm-min) {
+      &:before {
+        display: none !important;
+      }
     }
   }
 

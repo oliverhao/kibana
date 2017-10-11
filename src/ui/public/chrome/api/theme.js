@@ -77,4 +77,25 @@ module.exports = function (chrome, internals) {
     return internals.applicationClasses.join(' ');
   };
 
+    /**
+   * @param {string} background - css background definition
+   * @return {chrome}
+   */
+  chrome.setNavBackground = function (cssBackground) {
+    internals.navBackground = cssBackground;
+    return chrome;
+  };
+
+  /**
+   * @return {string} - css background
+   */
+  chrome.getNavBackground = function () {
+    if(internals.navBackground) {
+      return internals.navBackground;
+    }
+    else {
+      return '#39c';
+    }
+  };
+
 };

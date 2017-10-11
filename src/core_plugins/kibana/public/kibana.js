@@ -29,6 +29,7 @@ routes
 });
 
 chrome
+.setNavBackground('#39c')
 .setRootController('kibana', function ($scope, courier, config) {
   // wait for the application to finish loading
   $scope.$on('application.load', function () {

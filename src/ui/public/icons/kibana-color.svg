@@ -1,1 +1,84 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.24 25"><defs><style>.cls-1,.cls-2,.cls-3{fill:#e8488b;}.cls-1{opacity:0.7;}.cls-2{opacity:0.5;}</style></defs><title>Icon-Kibana</title><path class="cls-1" d="M12.41,11.69L22.12,0H2.88V9.37H3.24A19.09,19.09,0,0,1,12.41,11.69Z" transform="translate(-2.88)"/><polygon class="cls-1" points="0 23.17 0 23.17 9.53 11.69 0 23.17"/><path class="cls-1" d="M14.9,13.32l0.27,0.21Z" transform="translate(-2.88)"/><path class="cls-1" d="M14.16,12.77l0.15,0.11Z" transform="translate(-2.88)"/><path class="cls-1" d="M15.55,13.84L6.3,25H22.1A19.16,19.16,0,0,0,15.55,13.84Z" transform="translate(-2.88)"/><path class="cls-2" d="M14.07,12.71c-0.67-.48-1.66-1-1.66-1a19.21,19.21,0,0,1,1.75,1.08Z" transform="translate(-2.88)"/><path class="cls-2" d="M15.55,13.84l-0.39-.31,0.38,0.32h0Z" transform="translate(-2.88)"/><path class="cls-2" d="M14.31,12.88l0.59,0.43Z" transform="translate(-2.88)"/><path class="cls-2" d="M15.16,13.52l-0.27-.21-0.59-.43-0.15-.11a19.21,19.21,0,0,0-1.75-1.08L2.88,23.17V25H6.3l9.25-11.16Z" transform="translate(-2.88)"/><path class="cls-3" d="M3.24,9.36H2.88V23.17l9.53-11.48A19.09,19.09,0,0,0,3.24,9.36Z" transform="translate(-2.88)"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 19.24 25"
+   version="1.1"
+   sodipodi:docname="kibana-color.svg"
+   inkscape:version="0.92.1 r15371">
+  <metadata
+     id="metadata3853">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Icon-Kibana</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     id="namedview3851"
+     showgrid="false"
+     inkscape:zoom="9.44"
+     inkscape:cx="9.6199999"
+     inkscape:cy="12.5"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs3826">
+    <style
+       id="style3824">.cls-1,.cls-2,.cls-3{fill:#e8488b;}.cls-1{opacity:0.7;}.cls-2{opacity:0.5;}</style>
+  </defs>
+  <title
+     id="title3828">Icon-Kibana</title>
+  <polygon
+     class="cls-1"
+     points="0 23.17 0 23.17 9.53 11.69 0 23.17"
+     id="polygon3832" />
+  <path
+     class="cls-1"
+     d="M14.9,13.32l0.27,0.21Z"
+     transform="translate(-2.88)"
+     id="path3834" />
+  <path
+     class="cls-1"
+     d="M14.16,12.77l0.15,0.11Z"
+     transform="translate(-2.88)"
+     id="path3836" />
+  <path
+     class="cls-2"
+     d="M14.07,12.71c-0.67-.48-1.66-1-1.66-1a19.21,19.21,0,0,1,1.75,1.08Z"
+     transform="translate(-2.88)"
+     id="path3840" />
+  <path
+     class="cls-2"
+     d="M15.55,13.84l-0.39-.31,0.38,0.32h0Z"
+     transform="translate(-2.88)"
+     id="path3842" />
+  <path
+     class="cls-2"
+     d="M14.31,12.88l0.59,0.43Z"
+     transform="translate(-2.88)"
+     id="path3844" />
+</svg>

@@ -24,6 +24,8 @@ const deprecations = [
   unused('server.xsrf.token'),
   serverSslEnabled,
 
+  rename('sharpview', 'sharpview.configServer'),
+
   // logging
   rename('log_file', 'logging.dest'),
 

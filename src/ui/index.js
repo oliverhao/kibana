@@ -80,6 +80,7 @@ export default async (kbnServer, server, config) => {
       buildNum: config.get('pkg.buildNum'),
       buildSha: config.get('pkg.buildSha'),
       basePath: config.get('server.basePath'),
+      sharpview: config.get('sharpview.configServer'),
       serverName: config.get('server.name'),
       devMode: config.get('env.dev'),
       translations: translations,

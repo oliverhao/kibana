@@ -1,21 +1,153 @@
 <div class="content" chrome-context data-test-subj="kibanaChrome">
-  <global-nav
-    chrome="chrome"
-    is-visible="chrome.getVisible()"
-    logo-brand="chrome.getBrand('logo')"
-    small-logo-brand="chrome.getBrand('smallLogo')"
-    app-title="chrome.getAppTitle()"
-  ></global-nav>
+    <div id="top-menu" style="width:100%; position: fixed;">
+      <nav ng-style="::{ background: chrome.getNavBackground(), color: white }" ng-class="{ show: chrome.getVisible() }" class="hide navbar navbar-inverse navbar-static-top">
 
-  <div class="app-wrapper" ng-class="{ 'hidden-chrome': !chrome.getVisible() }">
-    <div class="app-wrapper-panel">
-      <kbn-notifications list="notifList"></kbn-notifications>
-      <kbn-loading-indicator></kbn-loading-indicator>
-      <div
-        class="application"
-        ng-class="'tab-' + chrome.getFirstPathSegment() + ' ' + chrome.getApplicationClasses()"
-        ng-view
-      ></div>
+        <!-- Full navbar -->
+        <div collapse="!showCollapsed" class="navbar-collapse" kbn-chrome-append-nav-controls>
+            <ul class="nav navbar-nav sv-nav navbar-right" role="navigation">
+                <li ng-if="chrome.getBrand('logo')" ng-style="{ 'background': chrome.getBrand('logo') }" aria-label="{{ chrome.getAppTitle() }} Logo" class="logo hidden-sm"></li>
+                <li ng-if="chrome.getBrand('smallLogo')" ng-style="{ 'background': chrome.getBrand('smallLogo') }" aria-label="{{ chrome.getAppTitle() }} Logo" class="logo-small visible-sm hidden-xs"></li>
+                <li ng-if="chrome.getBrand('title')" class="navbar-brand">{{ chrome.getBrand('title') }}</li>
+
+                <li class="pull-right" dropdown >
+                    <a dropdown-toggle data-toggle="dropdown">
+                    系统
+                      <span class="caret">  </span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">   
+                        <li role="menuitem"> 
+                          <a ng-href="http://{{sv}}:8080/j_spring_security_logout">
+                            管理配置
+                          </a> 
+                        </li>
+                        <li role="menuitem"> 
+                          <a ng-href="http://{{sv}}:8080/jsp/view.jsp">
+                            登出
+                          </a> 
+                        </li>
+                    </ul>
+                </li>
+
+                  <li class="pull-right" dropdown>
+                    <a dropdown-toggle data-toggle="dropdown">
+                      模板 
+                        <span class="caret">  </span>
+                    </a>
+                    <ul class="dropdown-menu">  
+                        <li> 
+                          <a ng-href="http://{{sv}}:8080/jsp/template.jsp">
+                            配置模板
+                          </a> 
+                        </li>
+                        <li> 
+                          <a ng-href="http://{{sv}}:8080/jsp/metric.jsp">
+                            配置度量
+                          </a> 
+                        </li>
+                        <li role="seperator" class="divider">  </li>
+                        <li> 
+                          <a ng-href="http://{{sv}}:8080" target="_blank">
+                            导出模板
+                          </a> 
+                        </li>
+                        <li> 
+                          <a ng-href="http://{{sv}}:8080" target="_blank">
+                            导出度量 
+                          </a> 
+                        </li>
+
+                        <li> 
+                          <a ng-href="http://{{sv}}:8080" target="_blank">
+                            导出Instance Types
+                          </a> 
+                        </li>
+                        <li role="seperator" class="divider">  </li>
+                        <li> 
+                          <a ng-href="http://{{sv}}:8080" target="_blank">
+                            导入模板
+                          </a> 
+                        </li>
+                        <li> 
+                          <a ng-href="http://{{sv}}:8080" target="_blank">
+                            导入度量 
+                          </a> 
+                        </li>
+
+                        <li> 
+                          <a ng-href="http://{{sv}}:8080" target="_blank">
+                            导入Instance Types
+                          </a> 
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="pull-right" dropdown>
+                    <a dropdown-toggle data-toggle="dropdown">
+                      配置 
+                      <span class="caret">  </span>
+                    </a>
+                    <ul class="dropdown-menu">  
+                        <li> 
+                          <a ng-href="http://{{sv}}:8080/jsp/service.jsp">
+                            配置系统
+                          </a> 
+                        </li>
+                        <li> 
+                          <a ng-href="http://{{sv}}:8080/jsp/view.jsp">
+                            配置监控
+                          </a> 
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="pull-right" dropdown>
+                    <a ng-href="/app/kibana#/report">
+                      报表
+                      
+                    </a>
+                </li>
+                <li class="pull-right">
+                    <a ng-href="/app/kibana#/report">
+                      仪表盘 
+                    </a>
+                </li>
+                <li class="pull-right">
+                    <a ng-href="http://{{sv}}:8080/alert.do">
+                      告警
+                    </a>
+                </li>
+                <li class="pull-right">
+                    <a ng-href="http://{{sv}}:8080/jsp/status.jsp">
+                      状态 
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+      </nav>
     </div>
-  </div>
+
+    <global-nav
+      chrome="chrome"
+      is-visible="chrome.getVisible()"
+      logo-brand="chrome.getBrand('logo')"
+      small-logo-brand="chrome.getBrand('smallLogo')"
+      app-title="chrome.getAppTitle()"
+    ></global-nav>
+    
+    <div class="app-wrapper" ng-class="{ 'hidden-chrome': !chrome.getVisible() }">
+      <div class="app-wrapper-panel">
+        <kbn-notifications list="notifList"></kbn-notifications>
+        <kbn-loading-indicator></kbn-loading-indicator>
+        <div
+          class="application"
+          ng-class="'tab-' + chrome.getFirstPathSegment() + ' ' + chrome.getApplicationClasses()"
+          ng-view
+        ></div>
+      </div>
+    </div>
+  <!--/div-->
+
+
 </div>
