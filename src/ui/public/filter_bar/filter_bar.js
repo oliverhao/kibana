@@ -12,6 +12,7 @@ import { FilterBarLibChangeTimeFilterProvider } from 'ui/filter_bar/lib/change_t
 import { FilterBarQueryFilterProvider } from 'ui/filter_bar/query_filter';
 import { compareFilters } from './lib/compare_filters';
 import { uiModules } from 'ui/modules';
+import chrome from 'ui/chrome';
 
 export { disableFilter, enableFilter, toggleFilterDisabled } from './lib/disable_filter';
 
@@ -50,6 +51,14 @@ module.directive('filterBar', function (Private, Promise, getAppState) {
 
       $scope.state = getAppState();
 
+      // Don't show filter "pinnability" when in embedded mode, as it doesn't make sense in that context
+      // as there will be no cross app navigation for which the filter should persist.
+      $scope.showFilterPin = () => {
+        //console.log("visible of chrome: " + chrome.getVisible());
+        return chrome.getVisible();
+      }
+      
+      
       $scope.showAddFilterButton = () => {
         return _.compact($scope.indexPatterns).length > 0;
       };

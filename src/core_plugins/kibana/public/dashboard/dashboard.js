@@ -174,6 +174,13 @@ app.directive('dashboardApp', function ($injector) {
         $scope.refresh();
       };
 
+      // Don't show filter "pinnability" when in embedded mode, as it doesn't make sense in that context
+      // as there will be no cross app navigation for which the filter should persist.
+      $scope.showFilterPin = () => {
+        //console.log("visible of chrome: " + chrome.getVisible());
+        return chrome.getVisible();
+      }
+
       // called by the saved-object-finder when a user clicks a vis
       $scope.addVis = function (hit, showToast = true) {
         pendingVisCount++;

@@ -33,7 +33,7 @@
     data-test-subj="filter filter-{{ filter.meta.disabled ? 'disabled' : 'enabled' }} {{ filter.meta.key ? 'filter-key-' + filter.meta.key : '' }} {{ filter.meta.value ? 'filter-value-' + filter.meta.value : '' }}"
   >
     <div class="filter-description">
-      <span ng-if="filter.$state.store == 'globalState'"><i class="fa fa-fw fa-thumb-tack pinned"></i></span>
+      <span ng-if="filter.$state.store === 'globalState'  && showFilterPin()"><i class="fa fa-fw fa-thumb-tack pinned"></i></span>
       <span ng-if="filter.meta.alias">{{ filter.meta.alias }}</span>
       <span ng-if="!filter.meta.alias">{{ filter.meta.key }}:</span>
       <span ng-if="!filter.meta.alias">"{{ filter.meta.value }}"</span>
@@ -43,7 +43,7 @@
         <i ng-show="filter.meta.disabled" class="fa fa-fw fa-square-o disabled"></i>
         <i ng-hide="filter.meta.disabled" class="fa fa-fw fa-check-square-o enabled"></i>
       </a>
-      <a class="action filter-pin" ng-click="pinFilter(filter)" data-test-subj="pinFilter-{{ filter.meta.key }}">
+      <a class="action filter-pin" ng-if="showFilterPin()" ng-click="pinFilter(filter)" data-test-subj="pinFilter-{{ filter.meta.key }}">
         <i ng-show="filter.$state.store == 'globalState'" class="fa fa-fw fa-thumb-tack pinned"></i>
         <i ng-hide="filter.$state.store == 'globalState'" class="fa fa-fw fa-thumb-tack fa-rotate-270 unpinned"></i>
       </a>
@@ -64,7 +64,7 @@
     class="filter-link"
     ng-show="showAddFilterButton()"
   >
-    <div class="filter-description small" style='display: inline-block;padding-right: 8px;'>
+    <div class="filter-description small"  ng-if="showFilterPin()" style='display: inline-block;padding-right: 8px;'>
       <a
         ng-click="addFilter()"
         kbn-accessible-click
@@ -74,7 +74,7 @@
       </a>
     </div>
 	
-	<div class="filter-description small" style='display: inline-block;padding-right: 8px;'>
+	<div class="filter-description small"  ng-if="showFilterPin()" style='display: inline-block;padding-right: 8px;'>
       <a
         ng-click="addScriptField()"
         kbn-accessible-click
@@ -120,7 +120,7 @@
 
 <div
     class="scripted-field-edit-container"
-    ng-if="editingScriptField"
+    ng-if="editingScriptField  && showFilterPin()"
   >
     <scripted-field-editor
       filter="editingScriptField"
@@ -146,10 +146,10 @@
     <div class="filter-link">
       <div class="filter-description"><a ng-click="toggleAll(true)">Disable</a></div>
     </div>
-    <div class="filter-link">
+    <div class="filter-link" ng-if="showFilterPin()">
       <div class="filter-description"><a ng-click="pinAll(true)">Pin</a></div>
     </div>
-    <div class="filter-link">
+    <div class="filter-link" ng-if="showFilterPin()">
       <div class="filter-description"><a ng-click="pinAll(false)">Unpin</a></div>
     </div>
     <div class="filter-link">
