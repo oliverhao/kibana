@@ -64,12 +64,22 @@
     class="filter-link"
     ng-show="showAddFilterButton()"
   >
-    <div class="filter-description small">
+    <div class="filter-description small" style='display: inline-block;padding-right: 8px;'>
       <a
         ng-click="addFilter()"
         kbn-accessible-click
       >
         Add a filter
+        <span class="fa fa-plus"></span>
+      </a>
+    </div>
+	
+	<div class="filter-description small" style='display: inline-block;padding-right: 8px;'>
+      <a
+        ng-click="addScriptField()"
+        kbn-accessible-click
+      >
+        Add a scripted field
         <span class="fa fa-plus"></span>
       </a>
     </div>
@@ -105,6 +115,20 @@
       on-save="saveEdit(filter, newFilter, isPinned)"
       on-cancel="cancelEdit()"
     ></filter-editor>
+  </div>
+</div>
+
+<div
+    class="scripted-field-edit-container"
+    ng-if="editingScriptField"
+  >
+    <scripted-field-editor
+      filter="editingScriptField"
+      index-patterns="indexPatterns"
+      on-delete="deleteScriptField(editingScriptField)"
+      on-save="saveScriptField(filter, newFilter, isPinned)"
+      on-cancel="cancelScriptFieldEdit()"
+    ></scripted-field-editor>
   </div>
 </div>
 

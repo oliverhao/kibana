@@ -2,6 +2,7 @@ import _ from 'lodash';
 import template from 'ui/filter_bar/filter_bar.html';
 import 'ui/directives/json_input';
 import '../filter_editor';
+import '../scripted_field_editor';
 import { filterAppliedAndUnwrap } from 'ui/filter_bar/lib/filter_applied_and_unwrap';
 import { FilterBarLibMapAndFlattenFiltersProvider } from 'ui/filter_bar/lib/map_and_flatten_filters';
 import { FilterBarLibMapFlattenAndWrapFiltersProvider } from 'ui/filter_bar/lib/map_flatten_and_wrap_filters';
@@ -64,6 +65,7 @@ module.directive('filterBar', function (Private, Promise, getAppState) {
       };
 
       $scope.addFilter = () => {
+		$scope.cancelScriptFieldEdit();
         $scope.editingFilter = {
           meta: { isNew: true }
         };
@@ -86,6 +88,33 @@ module.directive('filterBar', function (Private, Promise, getAppState) {
         if (!filter.isNew) $scope.removeFilter(filter);
         delete $scope.editingFilter;
         $scope.addFilters([newFilter], isPinned);
+      };
+	  
+	  $scope.addScriptField = () => {
+		$scope.cancelEdit();
+        $scope.editingScriptField = {
+          meta: { isNew: true }
+        };
+      };
+
+      $scope.deleteScriptField = (filter) => {
+        $scope.removeFilter(filter);
+        if (filter === $scope.editingScriptField) $scope.cancelEdit();
+      };
+
+      $scope.editScriptField = (filter) => {
+        $scope.editingScriptField = filter;
+      };
+
+      $scope.cancelScriptFieldEdit = () => {
+        delete $scope.editingScriptField;
+      };
+
+      $scope.saveScriptFieldEdit = (filter, newFilter, isPinned) => {
+        if (!filter.isNew) $scope.removeFilter(filter);
+        delete $scope.editingScriptField;
+        //$scope.addFilters([newFilter], isPinned);
+		alert('save scripted field editor');
       };
 
       $scope.clearFilterBar = function () {

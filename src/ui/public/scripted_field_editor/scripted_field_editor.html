@@ -1,0 +1,137 @@
+<div class="filterEditor kuiModal">
+  <div class="kuiModalHeader">
+    <div class="kuiModalHeader__title">
+      <span ng-show="scriptedFieldEditor.filter.meta.isNew">Add</span>
+      <span ng-hide="scriptedFieldEditor.filter.meta.isNew">Edit</span>
+      Scripted Field
+    </div>
+
+    <button
+      class="kuiModalHeaderCloseButton kuiIcon fa-times"
+      ng-click="scriptedFieldEditor.onCancel()"
+      aria-label="Close filter popover"
+    ></button>
+  </div>
+
+  <div class="kuiModalBody">
+	<!-- Name -->
+    <div class="kuiVerticalRhythm">
+      <div class="kuiVerticalRhythmSmall">
+        <label
+          class="kuiLabel"
+          for="filterEditorLabelInput"
+        >
+          Name
+        </label>
+      </div>
+
+      <input
+        class="kuiTextInput kuiVerticalRhythm"
+        placeholder="Required"
+        required
+        type="text"
+        ng-model="scriptedFieldEditor.name"
+        id="filterEditorLabelInput"
+      />
+    </div>
+
+    <!-- Type -->
+    <div class="kuiVerticalRhythm">
+      <div class="kuiVerticalRhythmSmall">
+        <label
+          class="kuiLabel"
+          for="filterEditorTypeInput"
+        >
+          Type
+        </label>
+      </div>
+
+      <select
+      ng-model="scriptedFieldEditor.type"
+      required
+      ng-options="type as type for type in scriptedFieldEditor.fieldTypes"
+      class="form-control"
+      type="scriptedFieldEditor.type"
+      on-select="scriptedFieldEditor.onTypeSelect(type)">
+      </select>
+    </div>
+
+    <!-- Regular Expression -->
+    <div class="kuiVerticalRhythm">
+      <div class="kuiVerticalRhythmSmall">
+        <label
+          class="kuiLabel"
+          for="filterEditorRegExInput"
+        >
+        Regular Expression
+        </label>
+      </div>
+
+      <input
+        ng-model="scriptedFieldEditor.regEx"
+        required
+        placeholder="Regular Expression"
+        input-focus
+        class="form-control"
+        id="filterEditorRegExInput"
+      />
+    </div>
+
+    <!-- Filter definition -->
+    <div class="kuiVerticalRhythm">
+      <div class="kuiVerticalRhythm filterEditor__labelBar">
+        <label class="kuiLabel">
+          Source Field 
+        </label>
+
+      </div>
+
+      <!-- Filter dropdowns -->
+      <div
+        class="kuiFieldGroup kuiVerticalRhythm kuiFieldGroup--alignTop"
+        ng-show="!scriptedFieldEditor.showQueryDslEditor()"
+      >
+        <div class="kuiFieldGroupSection filterEditor__wideField">
+          <filter-field-select
+            index-patterns="scriptedFieldEditor.indexPatterns"
+            field="scriptedFieldEditor.field"
+            on-select="scriptedFieldEditor.onFieldSelect(field)"
+          ></filter-field-select>
+        </div>
+    </div>
+
+    
+  </div>
+
+  <!-- Footer -->
+  <div class="kuiModalFooter kuiBar">
+    <div class="kuiBarSection" ng-hide="scriptedFieldEditor.filter.meta.isNew">
+      <button
+        class="kuiButton kuiButton--danger"
+        ng-click="scriptedFieldEditor.onDelete()"
+        aria-label="Delete filter"
+      >
+        <span
+          class="kuiIcon fa-trash"
+          aria-hidden="true"
+        ></span>
+      </button>
+    </div>
+
+    <div class="kuiBarSection">
+      <button
+        class="kuiButton kuiButton--basic"
+        ng-click="scriptedFieldEditor.onCancel()"
+      >
+        Cancel
+      </button>
+      <button
+        class="kuiButton kuiButton--primary"
+        ng-disabled="!scriptedFieldEditor.isValid()"
+        ng-click="scriptedFieldEditor.save()"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</div>
