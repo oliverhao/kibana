@@ -1,13 +1,13 @@
 <div class="content" chrome-context data-test-subj="kibanaChrome">
-    <div id="top-menu" style="width:100%; position: fixed;">
+    <div id="top-menu" style="width:100%; position: absolute;">
       <nav ng-style="::{ background: chrome.getNavBackground(), color: white }" ng-class="{ show: chrome.getVisible() }" class="hide navbar navbar-inverse navbar-static-top">
 
         <!-- Full navbar -->
         <div collapse="!showCollapsed" class="navbar-collapse" kbn-chrome-append-nav-controls>
             <ul class="nav navbar-nav sv-nav navbar-right" role="navigation">
-                <li ng-if="chrome.getBrand('logo')" ng-style="{ 'background': chrome.getBrand('logo') }" aria-label="{{ chrome.getAppTitle() }} Logo" class="logo hidden-sm"></li>
+                <!--li ng-if="chrome.getBrand('logo')" ng-style="{ 'background': chrome.getBrand('logo') }" aria-label="{{ chrome.getAppTitle() }} Logo" class="logo hidden-sm"></li>
                 <li ng-if="chrome.getBrand('smallLogo')" ng-style="{ 'background': chrome.getBrand('smallLogo') }" aria-label="{{ chrome.getAppTitle() }} Logo" class="logo-small visible-sm hidden-xs"></li>
-                <li ng-if="chrome.getBrand('title')" class="navbar-brand">{{ chrome.getBrand('title') }}</li>
+                <li ng-if="chrome.getBrand('title')" class="navbar-brand">{{ chrome.getBrand('title') }}</li-->
 
                 <li class="pull-right" dropdown >
                     <a dropdown-toggle data-toggle="dropdown">
