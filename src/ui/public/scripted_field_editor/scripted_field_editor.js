@@ -124,7 +124,25 @@ module.directive('scriptedFieldEditor', function (Private, Notifier, kbnUrl, $ti
       }
 
       function generateScript() {
-        var script = "def m = /" + self.regEx + "/.matcher(doc['" + self.srcField.name + ".keyword'].value);\n" + 
+        var script = "if(!doc.containsKey('" + self.srcField.name + "')) {\n";
+        if(self.type == "number") {
+          script = script + "return 0;\n";        
+        }else {
+          script += "return \"\";\n";
+        }
+        script += "}\n"
+
+        script += "def value = doc['" + self.srcField.name + "'].value;\n";
+
+        script += "if( value == null) {\n"
+        if(self.type == "number") {
+          script = script + "return 0;\n";        
+        }else {
+          script += "return \"\";\n";
+        }
+        script += "}\n"
+
+        script += "def m = /" + self.regEx + "/.matcher(doc['" + self.srcField.name + "'].value);\n" + 
                 "if ( m.matches() ) {\n";
         
         if(self.type == "number") {
